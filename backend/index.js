@@ -28,7 +28,7 @@ app.post('/', async (req, res) => {
     ) {
         return res.status(400).json({ error: 'Invalid student data format.' });
     }
-
+    process.env.BACKEND_URL = process.env.BACKEND_URL.replace(/\/+$/, '');
     // Construct the email body for the warden
     const mailBody = `
         <h3>Student Late Arrival Request</h3>
